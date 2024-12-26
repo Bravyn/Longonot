@@ -8,7 +8,7 @@ load_dotenv()
 
 # Set up OpenAI API Key (replace 'your-openai-api-key' with your actual key)
 # openai.api_key = os.getenv("OPENAI_API_KEY")
-openai.api_key = st.secrets["OPENAI_API_KEY"]
+openai.api_key = st.secrets["openai"]["api_key"]
 
 # Streamlit page configuration
 st.set_page_config("Professor Zee", ":glasses:")
@@ -32,7 +32,7 @@ def get_gpt_response(query):
                 {
                     "role": "system",
                     "content": (
-                        "Teach about python."
+                        f"You are a python teacher.Teach me about {query}"
                     ),
                 },
             ],
